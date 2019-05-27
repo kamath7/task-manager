@@ -1,14 +1,5 @@
-const express = require('express');
-require('./db/mongoose');
+const app = require('./app');
 
-const User = require('./models/user');
-const Tasks = require('./models/Tasks');
-
-const userRouter = require('./routers/user');
-const taskRouter = require('./routers/tasks');
-
-
-const app = express();
 const port = process.env.PORT;
 
 // app.use((req,res,next)=>{
@@ -19,26 +10,12 @@ const port = process.env.PORT;
 //     }
 // });//Using middleware
 
-
-
-
-
-
 //Maintenance mode 
 // app.use((req,res,next)=>{
 //     if(req.method){
 //         res.status(503).send("Under Maintenance!");
 //     }
 // });
-
-
-
-app.use(express.json()); //parse incoming json
-app.use(userRouter);
-app.use(taskRouter);
-
-
-
 
 
 app.listen(port, ()=>{
